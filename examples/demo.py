@@ -28,7 +28,7 @@ def main():
     # Detect the type of infrastructure config file.
     print("📝 Example: detect_config_type()")
     result = detect_config_type(
-        filepath="sample.txt"  # Replace with actual file path,
+        filepath="sample.txt",
         content="The quick brown fox jumps over the lazy dog. This is sample content for demonstration."
     )
     print(f"   Result: {result}")
@@ -37,7 +37,7 @@ def main():
     print("📝 Example: extract_dependencies()")
     result = extract_dependencies(
         content="The quick brown fox jumps over the lazy dog. This is sample content for demonstration.",
-        config_type={"service": "web-app", "port": 8080, "database": "postgres"}
+        config_type="docker-compose"
     )
     print(f"   Result: {result}")
     print()
@@ -45,7 +45,7 @@ def main():
     print("📝 Example: generate_docs()")
     result = generate_docs(
         content="The quick brown fox jumps over the lazy dog. This is sample content for demonstration.",
-        config_type={"service": "web-app", "port": 8080, "database": "postgres"}
+        config_type="docker-compose"
     )
     print(f"   Result: {result}")
     print()
