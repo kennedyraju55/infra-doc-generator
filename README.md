@@ -1,71 +1,100 @@
-# 📚 Infrastructure Documentation Generator
+# 📋 infra-doc-generator
 
-Generate comprehensive infrastructure documentation automatically from your systems.
+Generate infrastructure documentation automatically — keep your architecture private
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Compatible-green.svg)](https://ollama.com)
-[![Gemma 3](https://img.shields.io/badge/Gemma-3-orange.svg)](https://ollama.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Privacy First](https://img.shields.io/badge/Privacy-First-red.svg)](#why-local)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)](https://ollama.com)
+[![Gemma 3](https://img.shields.io/badge/Gemma%203-Language%20Model-orange)](https://ollama.com/library/gemma2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+[![Privacy First](https://img.shields.io/badge/Privacy-First-darkgreen)](#why-local)
 
-## What It Does
+## 🎯 What it does
 
-- **Auto-generates infrastructure documentation** from your systems and configs
-- **Architecture diagrams** in Mermaid format (rendered in GitHub)
-- **Component descriptions** with Gemma 3 intelligence
-- **Runbooks and procedures** for common operational tasks
+- Create comprehensive infrastructure documentation from system descriptions
+- Generates architecture diagrams (text-based), deployment guides, troubleshooting docs
+- Documents cloud infrastructure, Kubernetes clusters, on-prem setups
+- All documentation generation happens locally — your infrastructure stays confidential
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Python 3.8+** — Documentation generation engine
-- **Gemma 3** (via Ollama) — Technical writing and architecture analysis
-- **Markdown** — Documentation format
-- **Mermaid** — Diagram generation
+- Streamlit (Web UI)
+- FastAPI (Backend API)
+- Ollama (Local LLM inference)
+- Gemma 3 (Language model)
+- Python 3.8+
 
-## Quick Start
+## ⚡ Quick Start
 
-`ash
-# Clone the repository
-git clone https://github.com/kennedyraju55/infra-doc-generator.git
-cd infra-doc-generator
+1. **Clone the repository**
+   \\\ash
+   git clone https://github.com/kennedyraju55/infra-doc-generator.git
+   cd infra-doc-generator
+   \\\
 
-# Install dependencies
-pip install -r requirements.txt
+2. **Install dependencies**
+   \\\ash
+   pip install -r requirements.txt
+   \\\
 
-# Pull Gemma 3 model locally
-ollama pull gemma3:4b
+3. **Download and start Ollama**
+   - Download from [ollama.com](https://ollama.com)
+   - Start Ollama service:
+   \\\ash
+   ollama serve
+   \\\
+   - In another terminal, pull Gemma 3:
+   \\\ash
+   ollama pull gemma2
+   \\\
 
-# Generate infrastructure documentation
-python generator.py --config infrastructure.yaml --output docs/
-`
+4. **Run the application**
+   \\\ash
+   streamlit run app.py
+   \\\
 
-## Architecture
+Access the app at: http://localhost:8501
 
-`
-infra config + system metadata
-    ↓
-[Gemma 3 LLM Analysis] ← offline, local
-    ↓
-descriptions + diagrams + runbooks
-    ↓
-Markdown documentation
-`
+## 🏗️ Architecture
 
-## Why Local?
+\\\
+User describes infrastructure → Streamlit UI → FastAPI processes request → Ollama generates docs using Gemma 3 → Returns formatted documentation → Export/version control
+\\\
 
-- **Security**: Your infrastructure topology stays private and on-premises
-- **Privacy**: No exposure of system architecture or configuration details
-- **Control**: Generate documentation that matches your organization's standards
-- **Compliance**: Keep sensitive infrastructure information within your organization
+All processing happens locally on your machine. No data is sent to external services.
 
-## Contributing
+## 🔒 Why Local?
 
-Contributions welcome! Please fork, create a feature branch, and submit a pull request.
+Infrastructure documentation reveals your system topology, security architecture, scaling strategies, and deployment processes. Generating locally ensures competitors and threat actors never see your infrastructure design.
 
-## License
+## 📦 Environment Variables
 
-MIT License — see [LICENSE](LICENSE) for details.
+Create a \.env\ file in the project root:
+
+\\\nv
+OLLAMA_BASE_URL=http://localhost:11434
+MODEL_NAME=gemma2
+LOG_LEVEL=INFO
+\\\
+
+## 🤝 Contributing
+
+We love contributions! Here's how to help:
+
+1. Fork the repository
+2. Create a feature branch: \git checkout -b feature/your-feature\
+3. Make your changes and commit: \git commit -am 'Add feature'\
+4. Push to the branch: \git push origin feature/your-feature\
+5. Submit a Pull Request
+
+Please ensure:
+- Code follows PEP 8 style guidelines
+- Changes include appropriate comments
+- Updates to documentation are included
+
+## 📄 License
+
+This project is licensed under the MIT License — see [LICENSE](./LICENSE) for details.
 
 ---
 
-*Part of 114+ privacy-first AI tools by Nrk Raju*
+**Part of 114+ privacy-first AI tools by [Nrk Raju](https://github.com/kennedyraju55)**
